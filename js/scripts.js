@@ -1,24 +1,36 @@
+//List of Pokemon
+
 let pokemonList = [
   {
     name: 'Bulbasaur',
-    height: 7,
+    height: 0.7,
     types: [
       'grass',
       'poison'
     ]
   },
   {
-    name: 'Charmander',
-    height: 6,
+    name: 'Charizard',
+    height: 1.7,
     types: [
-      'fire'
+      'fire', 'flying'
     ]
   },
   {
     name: 'Squirtle',
-    height: 5,
+    height: 0.5,
     types: [
       'water'
     ]
   }
 ];
+
+//Loop that iterates Pokemon's names and heights and comments on biggest Pokemon
+
+ for (let i = 0; i < pokemonList.length; i++) {
+  if (pokemonList[i].height > 1.0){
+    document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') - Wow, that\'s big! ')
+  }else if (pokemonList[i].height){
+    document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ')
+  }
+}
