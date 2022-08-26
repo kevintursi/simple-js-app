@@ -29,8 +29,8 @@ let pokemonList = [
 
  for (let i = 0; i < pokemonList.length; i++) {
   if (pokemonList[i].height > 1.0){
-    document.write('<p>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') - Wow, that\'s big! ')
+    document.write('<p>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') - Wow, that\'s big! ') //For Pokemon who's height is above 1.0 to call them big
   }else if (pokemonList[i].height){
-    document.write('<p>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ')
+    document.write('<p>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ') //For Pokemon who are not above 1.0
   }
 }
