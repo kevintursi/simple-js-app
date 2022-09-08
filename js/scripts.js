@@ -34,6 +34,7 @@ pokemonList.forEach(function(pokemon) {
   //for pokemon equal to or above the height treshold to be labeled "Wow, that's big!"
   if (pokemon.height >= heightThresh) {
     document.write(`<li>${pokemon.name} (height: ${pokemon.height}m) - Wow, that's big!</li>`);
+  //for pokemon below height treshold to be labeled by name and height
   } else {
     document.write(`<li>${pokemon.name} (height: ${pokemon.height}m)</li>`);
   }
