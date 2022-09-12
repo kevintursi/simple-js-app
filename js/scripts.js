@@ -31,15 +31,38 @@ let pokemonRepository = (function() {
   }
 
 //defining add(item) function
-  function add(item) {
-    pokemonList.push(item);
+  function add(pokemon) {
+    pokemonList.push(pokemon);
   }
 
-// returning oject with getAll() and add(item) assigned as keys
+  //AddListItem function is to iterate each Pokemon in their own box
+  function addListItem(pokemon){
+    // assign the pokemon list to new variable
+    let pokemonList = document.querySelector('.pokemon-list');
+    //create new list entry and makes a button
+    let listPokemon = document.createElement('li');
+    let button = document.createElement('button');
+    // changes text of button to match up with specific pokemon name
+    button.innerText = pokemon.name;
+    button.classList.add('button-class');
+    listPokemon.appendChild(button);
+    pokemonList.appendChild(listPokemon);
+    // add event handler calling function showDetails(pokemon)
+    button.addEventListener('click', function () {
+      showDetails(pokemon);
+    });
+  }
+//made showDetails() function that prints details of pokemon to the console
+  function showDetails(pokemon){
+    console.log(pokemon);
+  }
+
+// returning oject with getAll() and add(pokemon) and addListItem() assigned as keys
   return {
     getAll: getAll,
-    add: add
-  }
+    add: add,
+    addListItem: addListItem
+  };
 })()
 
 // height treshold for guaging whether a pokemon is big or not
@@ -47,11 +70,5 @@ let heightThresh = 1.0;
 
 // forEach loop to iterate each pokemon in the pokemonList
 pokemonRepository.getAll().forEach(function(pokemon) {
-  //for pokemon equal to or above the height treshold to be labeled "Wow, that's big!"
-  if (pokemon.height >= heightThresh) {
-    document.write(`<li>${pokemon.name} (height: ${pokemon.height}m) - Wow, that's big!</li>`);
-  //for pokemon below height treshold to be labeled by name and height
-  } else {
-    document.write(`<li>${pokemon.name} (height: ${pokemon.height}m)</li>`);
-  }
+  pokemonRepository.addListItem(pokemon);
 });
