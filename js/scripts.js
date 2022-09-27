@@ -95,6 +95,7 @@ let pokemonRepository = (function () {
     modal.appendChild(title);
     modal.appendChild(height);
     modal.appendChild(image);
+    modal.appendChild(closeButton);
     modalContainer.appendChild(modal);
 
 
@@ -112,7 +113,7 @@ let pokemonRepository = (function () {
   }
 
     function hideModal() {
-      let modalContainer = document.querySelector('.pokemon.modal')
+      let modalContainer = document.querySelector('.pokemon-modal')
       modalContainer.classList.remove('is-visible');
     }
 
