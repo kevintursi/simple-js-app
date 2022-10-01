@@ -40,6 +40,9 @@ let pokemonRepository = (function () {
     // changes text of button to match up with specific pokemon name
     button.innerText = pokemon.name;
     button.classList.add('button-class');
+    button.setAttribute('data-target', '.modal');
+    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-is-clicked', 'false');
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
     // add event handler calling function showDetails(pokemon)
@@ -68,6 +71,24 @@ let pokemonRepository = (function () {
     });
   };
 
+  function showModal(pokemon) {
+    let modalBody = $('.modal-body');
+    let modalTitle = $('.modal-title');
+
+    modalTitle.empty();
+    modalBody.empty();
+
+    let nameElement = $('<h1>' + pokemon.name + '</h1>');
+    let imageElement = $('<img class="modal-img">');
+    imageElement.attr('src', pokemon.imageUrl);
+    let heightElement = $('<p>' + 'Height: ' + pokemon.height + 'mm' + '</p>');
+
+
+    modalTitle.append(nameElement);
+    modalBody.append(imageElement);
+    modalBody.append(heightElement);
+  }
+
 // returning oject with getAll() and add(pokemon) and addListItem() assigned as keys
   return {
     add: add,
@@ -83,8 +104,7 @@ let pokemonRepository = (function () {
 //let heightThresh = 1.0;
 
 // forEach loop to iterate each pokemon in the pokemonList
-pokemonRepository.loadList().then(function()
-{
+pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
   });

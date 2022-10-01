@@ -57,7 +57,7 @@ body {
 
 .modal {
   margin: auto;
-  display: inline-block;
+  display: none;
   box-sizing: border-box;
   background: #FFF;
   padding: 15px;
