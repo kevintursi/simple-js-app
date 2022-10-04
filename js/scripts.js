@@ -58,7 +58,8 @@ let pokemonRepository = (function () {
     }).then(function (details) {
       item.imageUrl = details.sprites.front_default;
         item.height = details.height;
-        item.types = details.types;
+        item.weight = details.weight;
+        item.types = details.types.map((type) => type.type.name).join(', ');
       }).catch(function (e) {
         console.error(e);
       });
@@ -82,11 +83,15 @@ let pokemonRepository = (function () {
     let imageElement = $('<img class="modal-img">');
     imageElement.attr('src', pokemon.imageUrl);
     let heightElement = $('<p>' + 'Height: ' + pokemon.height + 'mm' + '</p>');
+    let weightElement = $('<p>' + 'Weight: ' + pokemon.weight + '</p>');
+    let typesElement = $('<p>' + 'Types: ' + pokemon.types + '</p>');
 
 
     modalTitle.append(nameElement);
     modalBody.append(imageElement);
     modalBody.append(heightElement);
+    modalBody.append(weightElement);
+    modalBody.append(typesElement);
   }
 
 // returning oject with getAll() and add(pokemon) and addListItem() assigned as keys
