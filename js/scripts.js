@@ -51,6 +51,7 @@ let pokemonRepository = (function () {
     });
   }
 
+// loads details (height, weight, image, etc.) of each pokemon from API 
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
@@ -72,6 +73,7 @@ let pokemonRepository = (function () {
     });
   };
 
+// function to show Modal with each pokemon's name, height, weight, and types displayed
   function showModal(pokemon) {
     let modalBody = $('.modal-body');
     let modalTitle = $('.modal-title');
@@ -94,7 +96,7 @@ let pokemonRepository = (function () {
     modalBody.append(typesElement);
   }
 
-// returning oject with getAll() and add(pokemon) and addListItem() assigned as keys
+// returning oject with getAll() and add(pokemon) loadList() loadDetails() showDetails() and addListItem() assigned as keys
   return {
     add: add,
     getAll: getAll,
@@ -104,9 +106,6 @@ let pokemonRepository = (function () {
     showDetails: showDetails
   };
 })();
-
-// height treshold for guaging whether a pokemon is big or not
-//let heightThresh = 1.0;
 
 // forEach loop to iterate each pokemon in the pokemonList
 pokemonRepository.loadList().then(function() {
