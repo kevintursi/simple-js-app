@@ -1,0 +1,44 @@
+:root {
+  --primary-color: #6f98ea;
+  --secondary-color: #7d8caa;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+ul {
+  list-style-stype: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+.button-class {
+  background-color: var(--secondary-color);
+  border: none;
+  color: #fff;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  cursor: pointer;
+  width: 300px;
+}
+.pokemon-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
